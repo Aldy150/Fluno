@@ -26,6 +26,47 @@ const etapes = [
   { titre: "Mise en ligne", texte: "Nous déployons, puis nous restons là pour le suivi et les évolutions." },
 ];
 
+const expertises = [
+  {
+    titre: "Développement web",
+    texte: "Sites vitrines, boutiques en ligne, plateformes et espaces clients, pensés pour être rapides et bien référencés.",
+  },
+  {
+    titre: "Applications mobiles",
+    texte: "Des applications iOS et Android avec une interface claire, fluide et adaptée à un usage quotidien.",
+  },
+  {
+    titre: "Conception et design",
+    texte: "Parcours utilisateur, maquettes et interface : nous dessinons l'outil avant de le construire.",
+  },
+  {
+    titre: "Maintenance et évolution",
+    texte: "Corrections, mises à jour de sécurité et nouvelles fonctionnalités après la mise en ligne.",
+  },
+];
+
+// À adapter aux clients réels de Fluno
+const clients = [
+  { titre: "Entrepreneurs et indépendants", texte: "Pour lancer une activité avec une présence en ligne solide." },
+  { titre: "PME et entreprises", texte: "Pour digitaliser un processus ou proposer un nouveau service." },
+  { titre: "Associations et institutions", texte: "Pour mieux informer, organiser et toucher leur public." },
+  { titre: "Porteurs de projet", texte: "Pour transformer une idée en un premier produit utilisable." },
+];
+
+const roles = [
+  { titre: "Chef de projet", texte: "Votre interlocuteur unique : il cadre le besoin, suit le planning et vous tient informé." },
+  { titre: "Designer", texte: "Il imagine les parcours et dessine les écrans pour que l'outil soit simple à utiliser." },
+  { titre: "Développeurs", texte: "Ils construisent, testent et déploient l'application, web comme mobile." },
+];
+
+const engagements = [
+  "Un devis clair, avec un périmètre et un planning définis avant de commencer.",
+  "Des points d'avancement réguliers, pour valider chaque étape avec vous.",
+  "Un code que vous pouvez reprendre, documenté et vous appartenant.",
+  "Une réponse honnête, y compris quand une idée n'est pas la bonne solution.",
+  "Un suivi après la mise en ligne, pour que votre outil continue de fonctionner.",
+];
+
 export default function QuiSommesNous() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-blue-50 via-white to-blue-50/60 text-gray-900">
@@ -78,6 +119,11 @@ export default function QuiSommesNous() {
                   l'utilisent. Une application réussie est une application que l'on comprend
                   du premier coup et qui répond vraiment au besoin de départ.
                 </p>
+                <h2 className="mt-6 text-lg font-semibold text-blue-700">Notre conviction</h2>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                  La technologie n'a de valeur que si elle sert un objectif clair. Nous préférons
+                  une solution simple qui fonctionne à une solution complexe qui impressionne.
+                </p>
               </div>
             </div>
           </section>
@@ -96,6 +142,26 @@ export default function QuiSommesNous() {
           </div>
         </section>
 
+        {/* Expertises */}
+        <section className="mx-auto max-w-6xl px-6 pb-16">
+          <h2 className="text-2xl font-bold tracking-tight">Notre expertise</h2>
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-gray-600">
+            De la première maquette au suivi après la mise en ligne, nous couvrons l'ensemble
+            d'un projet numérique.
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {expertises.map((x) => (
+              <article
+                key={x.titre}
+                className="rounded-2xl border border-blue-100 bg-white/70 p-6 backdrop-blur"
+              >
+                <h3 className="text-lg font-semibold text-gray-900">{x.titre}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{x.texte}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         {/* Méthode : une vraie suite d'étapes */}
         <section className="mx-auto max-w-6xl px-6 pb-16">
           <h2 className="text-2xl font-bold tracking-tight">Comment nous travaillons</h2>
@@ -103,7 +169,7 @@ export default function QuiSommesNous() {
             {etapes.map((e, i) => (
               <li
                 key={e.titre}
-                className="rounded-2xl border border-blue-100 bg-white/70 p-6 backdrop-blur"
+                className="rounded-2xl border border-blue-100 bg-white/70 p-6 backdrop-blur transition-all duration-300 hover:scale-105 hover:bg-blue-300"
               >
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-b from-blue-500 to-blue-700 text-sm font-semibold text-white">
                   {i + 1}
@@ -115,11 +181,78 @@ export default function QuiSommesNous() {
           </ol>
         </section>
 
+        {/* Pour qui */}
+        <section className="mx-auto max-w-6xl px-6 pb-16">
+          <h2 className="text-2xl font-bold tracking-tight">Pour qui nous travaillons</h2>
+          <div className="mt-6 grid divide-y divide-blue-100 overflow-hidden rounded-2xl border border-blue-100 bg-white/70 backdrop-blur sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+            {clients.map((c) => (
+              <article key={c.titre} className="p-6">
+                <h3 className="text-base font-semibold text-blue-700">{c.titre}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{c.texte}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* Rôles + engagements */}
+        <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-16 lg:grid-cols-2">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Qui travaille sur votre projet</h2>
+            <ul className="mt-6 divide-y divide-blue-100 overflow-hidden rounded-2xl border border-blue-100 bg-white/70 backdrop-blur">
+              {roles.map((r) => (
+                <li key={r.titre} className="p-5">
+                  <h3 className="text-base font-semibold text-gray-900">{r.titre}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{r.texte}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Nos engagements</h2>
+            <ul className="mt-6 space-y-3 rounded-2xl border border-blue-100 bg-white/70 p-6 backdrop-blur">
+              {engagements.map((e) => (
+                <li key={e} className="flex gap-3 text-sm leading-relaxed text-gray-700">
+                  <svg className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                    <path
+                      fillRule="evenodd"
+                      d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 111.4-1.4l3.8 3.8 6.8-6.8a1 1 0 011.4 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  {e}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Appel à l'action */}
+        <section className="mx-auto max-w-6xl px-6 pb-16">
+          <div className="flex flex-col items-start justify-between gap-5 rounded-3xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 shadow-xl shadow-blue-900/20 sm:flex-row sm:items-center">
+            <div>
+              <h2 className="text-xl font-bold text-white">Travaillons ensemble</h2>
+              <p className="mt-1 text-sm text-blue-100">
+                Racontez-nous votre projet, nous vous disons honnêtement comment le réaliser.
+              </p>
+            </div>
+            <a
+              href="/contact"
+              className="shrink-0 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Contactez-nous
+            </a>
+          </div>
+        </section>
+
         <footer className="border-t border-blue-100">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5">
             <p className="text-sm text-gray-500">© {new Date().getFullYear()} Fluno</p>
-            <a href="/contact" className="text-sm font-medium text-blue-700 hover:underline">
-              Nous contacter
+            <a
+              href="/offres"
+              className="rounded-xl bg-gradient-to-b from-blue-500 to-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:from-blue-600 hover:to-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
+              Suivant
             </a>
           </div>
         </footer>
