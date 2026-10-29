@@ -12,6 +12,7 @@
     "@tailwindcss/postcss": "^4.3.3",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
+    "motion": "^14.7.1",
     "next": "16.4.3",
     "postcss": "^8.5.32",
     "react": "19.3.0",
